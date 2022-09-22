@@ -7,8 +7,6 @@ def check():
     hash.update(password.encode())
     return values.login_password_hash == hash.digest()
 def login():
-    return True # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
     passed = False
     for i in range(3):
         correct = check()
