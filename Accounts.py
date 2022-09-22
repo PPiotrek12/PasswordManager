@@ -8,4 +8,3 @@ class Accounts:
         servDataFile.close()
         for i in range(len(self.servicesList)):
             self.servicesList[i] = self.servicesList[i][:len(self.servicesList[i])-1]
-test = Accounts()
