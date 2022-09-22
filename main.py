@@ -19,7 +19,7 @@ class Cryptography:
 		kdf = PBKDF2HMAC( algorithm=hashes.SHA256(), length=32, salt=salt, iterations=480000, )
 		self.key = base64.urlsafe_b64encode(kdf.derive(password))
 		self.fernet = Fernet(self.key)
-	def encrypt(self, text):sss
+	def encrypt(self, text):
 		return self.fernet.encrypt(text.encode()).decode()
 	def decrypt(self, text):
 		try:
@@ -38,7 +38,7 @@ class Reverse:
 class Encription():
 	def __init__(self, cryptography_password):
 		self.cryptography = Cryptography(cryptography_password)
-		self.reverse = Reverse()
+		self.reverse = Reverse()  
 
 	def encrypt(self, text):
 		cryptography_text = self.cryptography.encrypt(text)
