@@ -1,4 +1,5 @@
 from AddAccount import AddAccount
+from DeleteAccount import DeleteAccount
 from SeeAccount import SeeAccount
 from login import login
 
@@ -13,7 +14,7 @@ def start():
 [1] See login and password to the existing account.
 [2] Add new account.
 [3] Change an existing account
-[4] Remove an existing account.
+[4] Delete an existing account.
 [5] Exit.
 >>> """))
 		print("")
@@ -30,7 +31,8 @@ def start():
 		elif choice == 3:
 			pass
 		elif choice == 4:
-			pass
+			dele = DeleteAccount()
+			dele.deleteAccount()
 		else:
 			return
 		choice2 = int(input("Do you want to continue[1] or exit[2]?\n>>> "))
