@@ -8,7 +8,7 @@ import os
 
 class Cryptography:
 	@staticmethod
-	def __random_string():
+	def __random_string():ss
 	    letters = string.ascii_letters
 	    result_str = ''.join(random.choice(letters) for i in range(23))
 	    return result_str
@@ -38,7 +38,7 @@ class Reverse:
 class Encription():
 	def __init__(self, cryptography_password):
 		self.cryptography = Cryptography(cryptography_password)
-		self.reverse = Reverse()  
+		self.reverse = Reverse()
 
 	def encrypt(self, text):
 		cryptography_text = self.cryptography.encrypt(text)
