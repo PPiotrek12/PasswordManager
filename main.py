@@ -1,9 +1,9 @@
-from imports import *
+from Encryption import Encryption
 
 
-print(strings.cryptography_salt)
-#test = Encryption(input("podaj haslo: "))
-#
+#print(strings.cryptography_salt)
+test = Encryption(input("podaj haslo: "))
+
 
 #done: szyfrowanie dziala
 #todo: zrobic interfejs

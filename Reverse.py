@@ -1,5 +1,3 @@
-from imports import *
-
 class Reverse:
 	def __init__(self):
 		pass
