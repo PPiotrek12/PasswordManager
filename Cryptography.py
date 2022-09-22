@@ -5,7 +5,7 @@ import base64
 import random
 import string
 import os
-import strings
+import values
 
 class Cryptography:
 	@staticmethod
@@ -16,7 +16,7 @@ class Cryptography:
 
 	def __init__(self, password):
 		password = password.encode()
-		salt = strings.cryptography_salt.encode()
+		salt = values.cryptography_salt
 		kdf = PBKDF2HMAC( algorithm=hashes.SHA256(), length=32, salt=salt, iterations=480000, )
 		self.key = base64.urlsafe_b64encode(kdf.derive(password))
 		self.fernet = Fernet(self.key)

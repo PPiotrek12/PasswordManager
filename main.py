@@ -1,9 +1,8 @@
 from Encryption import Encryption
+from Login import login
 
+def start():
+	if not login():
+		return
 
-#print(strings.cryptography_salt)
-test = Encryption(input("podaj haslo: "))
-
-
-#done: szyfrowanie dziala
-#todo: zrobic interfejs
+start()
