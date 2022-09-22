@@ -2,8 +2,8 @@ from Cryptography import Cryptography
 from Reverse import Reverse
 
 class Encryption():
-	def __init__(self, cryptography_password):
-		self.__cryptography = Cryptography(cryptography_password)
+	def __init__(self, key1):
+		self.__cryptography = Cryptography(key1)
 		self.__reverse = Reverse()
 
 	def encrypt(self, text):
