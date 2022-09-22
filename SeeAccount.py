@@ -7,9 +7,9 @@ class SeeAccount(Accounts):
         self.key1 = key1
 
     def seeAccount(self):
-        number = super().printChoiceList("Insert the number of service of which you would like to see login and password.")
+        number = super().printChoiceList("Insert the number of account of which you would like to see login and password.")
         if number == -1:
-            return 
+            return
 
         file = open(self.path + self.servicesList[number - 1] + ".txt", 'r')
         encLogin = file.readline()

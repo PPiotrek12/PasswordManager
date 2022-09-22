@@ -1,6 +1,7 @@
 from AddAccount import AddAccount
 from DeleteAccount import DeleteAccount
 from SeeAccount import SeeAccount
+from ChangeAccount import ChangeAccount
 from login import login
 
 def start():
@@ -29,7 +30,8 @@ def start():
 			add = AddAccount(key1)
 			add.addAccount()
 		elif choice == 3:
-			pass
+			cha = ChangeAccount(key1)
+			cha.changeAccount()
 		elif choice == 4:
 			dele = DeleteAccount()
 			dele.deleteAccount()
