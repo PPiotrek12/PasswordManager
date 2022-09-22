@@ -19,7 +19,7 @@ class Cryptography:
 		kdf = PBKDF2HMAC( algorithm=hashes.SHA256(), length=32, salt=salt, iterations=480000, )
 		self.key = base64.urlsafe_b64encode(kdf.derive(password))
 		self.fernet = Fernet(self.key)
-	def encrypt(self, text):
+	def encrypt(self, text):sss
 		return self.fernet.encrypt(text.encode()).decode()
 	def decrypt(self, text):
 		try:
