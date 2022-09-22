@@ -3,8 +3,7 @@ from Encryption import Encryption
 
 class AddAccount(Accounts):
     def __init__(self, key1):
-        super().__init__()
-        self.key1 = key1
+        super().__init__(key1)
 
     def addAccount(self):
         while True:

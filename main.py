@@ -1,4 +1,5 @@
 from AddAccount import AddAccount
+from SeeAccount import SeeAccount
 from login import login
 
 def start():
@@ -16,8 +17,13 @@ def start():
 [5] Exit.
 >>> """))
 		print("")
+		while choice <= 0 or choice >= 6:
+			choice = int(input(f"Try again. Please insert number from range [1, 5].\n>>> "))
+			print("")
+
 		if choice == 1:
-			pass
+			see = SeeAccount(key1)
+			see.seeAccount()
 		elif choice == 2:
 			add = AddAccount(key1)
 			add.addAccount()
