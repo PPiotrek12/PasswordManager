@@ -1,19 +1,21 @@
 import hashlib
 import values
+import getpass
 
 def check(fileHash):
-    password = input("Insert your password.\n>>> ")
+    #password = input("Insert your password.\n>>> ")
+    password = getpass.getpass(prompt = "Insert your password (text is hidden).\n>>> ")
     hash = hashlib.new('sha256')
     hash.update(password.encode())
     return fileHash == hash.hexdigest()
 
 def register():
-    password1 = input("Hi! I see you're new here. Please insert new password to the app which will secure your data.\n>>> ")
-    password2 = input("Now confirm password\n>>> ")
+    getpass.getpass(prompt = "Hi! I see you're new here. Please insert new password to the app which will secure your data (text is hidden).\n>>> ")
+    getpass.getpass(prompt = "Now confirm password\n>>> ")
     print("")
     while password1 != password2:
-        password1 = input("Passwords doesn't match, try again.\n>>> ")
-        password2 = input("Confirm password\n>>> ")
+        getpass.getpass(prompt = "Passwords doesn't match, try again.\n>>> ")
+        getpass.getpass(prompt = "Confirm password\n>>> ")
         print("")
     hash = hashlib.new('sha256')
     hash.update(password1.encode())
@@ -46,5 +48,6 @@ def login():
     if not passed:
         print("You inserted invalid password three times.\n")
         return False
+    print("")
     print("You are logged in!\n")
     return True

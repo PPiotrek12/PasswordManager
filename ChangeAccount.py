@@ -1,5 +1,6 @@
 from Accounts import Accounts
 from Encryption import Encryption
+import getpass
 
 class ChangeAccount(Accounts):
     def __init__(self, key1, key2):
@@ -14,7 +15,7 @@ class ChangeAccount(Accounts):
 
         serviceName = self.servicesList[number - 1]
         accLogin = input("Insert new login to your account.\n>>> ")
-        accPassword = input("Insert new password to your account.\n>>> ")
+        accPassword = getpass.getpass(prompt = "Insert new password to your account (text is hidden).\n>>> ")
 
         enc = Encryption(self.key1, self.key2)
         encAccLogin = enc.encrypt(accLogin)

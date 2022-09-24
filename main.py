@@ -3,15 +3,16 @@ from DeleteAccount import DeleteAccount
 from SeeAccount import SeeAccount
 from ChangeAccount import ChangeAccount
 from login import login
+import getpass
 
 def start():
 	if not login():
 		return
 
-	key1 = input("Insert first encription key.\n>>> ")
+	key1 = getpass.getpass(prompt = "Insert first encryption key (text is hidden).\n>>> ")
 	print("")
 
-	key2 = input("Insert second encription key.\n>>> ")
+	key2 = getpass.getpass(prompt = "Insert second encryption key (text is hidden).\n>>> ")
 	print("")
 
 	while True:

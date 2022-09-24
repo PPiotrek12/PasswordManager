@@ -1,5 +1,6 @@
 from Accounts import Accounts
 from Encryption import Encryption
+import getpass
 
 class AddAccount(Accounts):
     def __init__(self, key1, key2):
@@ -15,7 +16,7 @@ class AddAccount(Accounts):
             else:
                 break
         accLogin = input("Insert login to your account.\n>>> ")
-        accPassword = input("Insert password to your account.\n>>> ")
+        accPassword = getpass.getpass(prompt = "Insert password to your account (text is hidden).\n>>> ")
 
         enc = Encryption(self.key1, self.key2)
         encAccLogin = enc.encrypt(accLogin)
