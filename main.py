@@ -46,4 +46,4 @@ start()
 
 #todo: ustawianie hasla na samym poczatku
 #todo: kolejne szyfrowanie (co najmniej jeszcze jedno)
-#todo: zrobic gwiazdkowane hasla 
+#todo: zrobic gwiazdkowane hasla

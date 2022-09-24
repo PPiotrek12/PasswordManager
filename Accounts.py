@@ -3,7 +3,11 @@ class Accounts:
     path = values.data_path
     def __init__(self):
         self.servicesList = []
-        servDataFile = open(self.path + "services.txt", 'r')
+        try:
+            servDataFile = open(self.path + "services.txt", 'r')
+        except:
+            servDataFile = open(self.path + "services.txt", 'w')
+            servDataFile = open(self.path + "services.txt", 'r')
         self.servicesList = servDataFile.readlines()
         servDataFile.close()
         for i in range(len(self.servicesList)):

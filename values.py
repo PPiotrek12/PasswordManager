@@ -1,3 +1,2 @@
-data_path = "/home/pio/.PasswordManager/data/"
+data_path = "/home/pio10/.PasswordManager/data/"
 cryptography_salt = b';,\xea\x9e\xaf\x13\x9f\xbb\xb9\xc6y\x89Y\r\x8a\x81'
-login_password_hash = b'F\xa8\xd0B\xe2.2\x01\xb6\xfd0A\xcfD\x8d?\xf8b$\xce\xd7yER/\xed\x9a\xf4\x03\x06\xc3\t'
