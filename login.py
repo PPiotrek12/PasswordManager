@@ -10,12 +10,12 @@ def check(fileHash):
     return fileHash == hash.hexdigest()
 
 def register():
-    getpass.getpass(prompt = "Hi! I see you're new here. Please insert new password to the app which will secure your data (text is hidden).\n>>> ")
-    getpass.getpass(prompt = "Now confirm password\n>>> ")
+    password1 = getpass.getpass(prompt = "Hi! I see you're new here. Please insert new password to the app which will secure your data (text is hidden).\n>>> ")
+    password2 = getpass.getpass(prompt = "Now confirm password\n>>> ")
     print("")
     while password1 != password2:
-        getpass.getpass(prompt = "Passwords doesn't match, try again.\n>>> ")
-        getpass.getpass(prompt = "Confirm password\n>>> ")
+        password1 = getpass.getpass(prompt = "Passwords doesn't match, try again.\n>>> ")
+        password2 = getpass.getpass(prompt = "Confirm password\n>>> ")
         print("")
     hash = hashlib.new('sha256')
     hash.update(password1.encode())
