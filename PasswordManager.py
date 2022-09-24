@@ -6,7 +6,7 @@ from login import login
 import getpass
 
 def start():
-	if not login():s
+	if not login():
 		return
 
 	key1 = getpass.getpass(prompt = "Insert first encryption key (text is hidden).\n>>> ")
