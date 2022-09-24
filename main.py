@@ -47,5 +47,3 @@ def start():
 			return
 		print("")
 start()
-
-#todo: zrobic gwiazdkowane hasla
