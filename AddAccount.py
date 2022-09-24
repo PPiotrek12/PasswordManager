@@ -2,9 +2,10 @@ from Accounts import Accounts
 from Encryption import Encryption
 
 class AddAccount(Accounts):
-    def __init__(self, key1):
+    def __init__(self, key1, key2):
         super().__init__()
         self.key1 = key1
+        self.key2 = key2
 
     def addAccount(self):
         while True:
@@ -16,7 +17,7 @@ class AddAccount(Accounts):
         accLogin = input("Insert login to your account.\n>>> ")
         accPassword = input("Insert password to your account.\n>>> ")
 
-        enc = Encryption(self.key1)
+        enc = Encryption(self.key1, self.key2)
         encAccLogin = enc.encrypt(accLogin)
         encAccPassword = enc.encrypt(accPassword)
 

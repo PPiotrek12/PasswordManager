@@ -10,6 +10,10 @@ def start():
 
 	key1 = input("Insert first encription key.\n>>> ")
 	print("")
+
+	key2 = input("Insert second encription key.\n>>> ")
+	print("")
+
 	while True:
 		choice = int(input("""What do you want to do?
 [1] See login and password to the existing account.
@@ -24,13 +28,13 @@ def start():
 			print("")
 
 		if choice == 1:
-			see = SeeAccount(key1)
+			see = SeeAccount(key1, key2)
 			see.seeAccount()
 		elif choice == 2:
-			add = AddAccount(key1)
+			add = AddAccount(key1, key2)
 			add.addAccount()
 		elif choice == 3:
-			cha = ChangeAccount(key1)
+			cha = ChangeAccount(key1, key2)
 			cha.changeAccount()
 		elif choice == 4:
 			dele = DeleteAccount()
@@ -43,7 +47,4 @@ def start():
 		print("")
 start()
 
-
-#todo: ustawianie hasla na samym poczatku
-#todo: kolejne szyfrowanie (co najmniej jeszcze jedno)
 #todo: zrobic gwiazdkowane hasla

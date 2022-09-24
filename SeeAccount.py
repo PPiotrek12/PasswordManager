@@ -2,9 +2,10 @@ from Accounts import Accounts
 from Encryption import Encryption
 
 class SeeAccount(Accounts):
-    def __init__(self, key1):
+    def __init__(self, key1, key2):
         super().__init__()
         self.key1 = key1
+        self.key2 = key2
 
     def seeAccount(self):
         number = super().printChoiceList("Insert the number of account of which you would like to see login and password.")
@@ -18,7 +19,7 @@ class SeeAccount(Accounts):
         encLogin = encLogin[:len(encLogin)-1]
         encPassword = encPassword[:len(encPassword)-1]
 
-        enc = Encryption(self.key1)
+        enc = Encryption(self.key1, self.key2)
         login = enc.decrypt(encLogin)
         password = enc.decrypt(encPassword)
 

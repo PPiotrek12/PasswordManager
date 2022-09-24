@@ -1,19 +1,18 @@
 from Cryptography import Cryptography
-from Reverse import Reverse
 
 class Encryption():
-	def __init__(self, key1):
-		self.__cryptography = Cryptography(key1)
-		self.__reverse = Reverse()
+	def __init__(self, key1, key2):
+		self.__cryptography1 = Cryptography(key1)
+		self.__cryptography2 = Cryptography(key2)
 
 	def encrypt(self, text):
-		cryptography_text = self.__cryptography.encrypt(text)
-		reverse_text = self.__reverse.encrypt(cryptography_text)
+		cryptography1_text = self.__cryptography1.encrypt(text)
+		cryptography2_text = self.__cryptography2.encrypt(cryptography1_text)
 		#...
-		return reverse_text
+		return cryptography2_text
 
 	def decrypt(self, text):
 		#...
-		reverse_text = self.__reverse.decrypt(text)
-		cryptography_text = self.__cryptography.decrypt(reverse_text)
+		cryptography2_text = self.__cryptography2.decrypt(text)
+		cryptography_text = self.__cryptography1.decrypt(cryptography2_text)
 		return cryptography_text
