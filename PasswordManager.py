@@ -7,7 +7,7 @@ from tkinter import *
 
 root = Tk()
 root.title("PasswordManager")
-root.geometry("500x600")
+root.geometry("600x640")
 
 def start():
 	homedir = os.path.expanduser("~") + "/"
