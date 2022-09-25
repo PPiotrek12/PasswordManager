@@ -1,7 +1,3 @@
-from AddAccount import AddAccount
-from DeleteAccount import DeleteAccount
-from SeeAccount import SeeAccount
-from ChangeAccount import ChangeAccount
 from register import register
 from login import login
 import values
@@ -10,6 +6,7 @@ import os.path
 from tkinter import *
 
 root = Tk()
+root.title("PasswordManager")
 root.geometry("500x600")
 
 def start():
