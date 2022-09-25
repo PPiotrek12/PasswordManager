@@ -1,53 +1,28 @@
 import hashlib
 import values
 import getpass
+from tkinter import *
 
-def check(fileHash):
-    #password = input("Insert your password.\n>>> ")
-    password = getpass.getpass(prompt = "Insert your password (text is hidden).\n>>> ")
+def check(frame, entry, fileHash):
+    password = entry.get()
     hash = hashlib.new('sha256')
     hash.update(password.encode())
-    return fileHash == hash.hexdigest()
+    if fileHash != hash.hexdigest():
+        wrong = Label(frame, text = "Wrong password, try again.").grid(row = 2, column = 0)
+    else:
+        print("zalogowano!!!")
 
-def register():
-    password1 = getpass.getpass(prompt = "Hi! I see you're new here. Please insert new password to the app which will secure your data (text is hidden).\n>>> ")
-    password2 = getpass.getpass(prompt = "Now confirm password\n>>> ")
-    print("")
-    while password1 != password2:
-        password1 = getpass.getpass(prompt = "Passwords doesn't match, try again.\n>>> ")
-        password2 = getpass.getpass(prompt = "Confirm password\n>>> ")
-        print("")
-    hash = hashlib.new('sha256')
-    hash.update(password1.encode())
 
-    file = open(values.data_path + "login.txt", 'w')
-    print(hash.hexdigest(), file=file)
-    file.close()
 
-    print("You are registered, can log in now.\n")
-
-def login():
-    try:
-         file = open(values.data_path + "login.txt", 'r')
-    except:
-        register()
-
+def login(root):
     file = open(values.data_path + "login.txt", 'r')
     fileHash = file.readline()
     file.close()
     fileHash = fileHash[:len(fileHash)-1]
 
-    passed = False
-    for i in range(3):
-        correct = check(fileHash)
-        if correct:
-            passed = True
-            break
-        else:
-            print("Invalid password, try again.\n")
-    if not passed:
-        print("You inserted invalid password three times.\n")
-        return False
-    print("")
-    print("You are logged in!\n")
-    return True
+    login_frame = Frame(root)
+    login_frame.pack()
+    entry = Entry(login_frame)
+    btn = Button(login_frame, text = "Login", command = lambda: check(login_frame, entry, fileHash))
+    entry.grid(row = 0, column = 0)
+    btn.grid(row = 1, column = 0)
