@@ -8,7 +8,7 @@ def check(root, frame, entry, fileHash):
     hash = hashlib.new('sha256')
     hash.update(password.encode())
     if fileHash != hash.hexdigest():
-        Label(frame, text = "Wrong password, try again.").grid(row = 3, column = 0)
+        Label(frame, text = "Wrong password, try again.", fg = "red").grid(row = 3, column = 0, pady = 10)
     else:
         frame.pack_forget()
         get_keys(root)
@@ -21,8 +21,8 @@ def login(root):
 
     login_frame = Frame(root)
     login_frame.pack()
-    Label(login_frame, text = "Insert your password.").grid(row = 0, column = 0)
-    entry = Entry(login_frame)
-    entry.grid(row = 1, column = 0)
+    Label(login_frame, text = "Insert your password.", font = "Helvetica 25 bold").grid(row = 0, column = 0, pady = 20)
+    entry = Entry(login_frame, width = 35)
+    entry.grid(row = 1, column = 0, pady = 10)
     btn = Button(login_frame, text = "Login", command = lambda: check(root, login_frame, entry, fileHash))
-    btn.grid(row = 2, column = 0)
+    btn.grid(row = 2, column = 0, pady = 10)
