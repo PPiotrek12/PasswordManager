@@ -41,6 +41,10 @@ class AddAccount(Accounts):
 
         self.add_account_frame = Frame(root)
         self.add_account_frame.pack()
+        if len(self.servicesList) == 30:
+            messagebox.showinfo(message = "You have achieved maximum number of 30 accounts. Please delete one first.")
+            self.back_to_menu()
+            return
 
         self.service_name_entry = Entry(self.add_account_frame)
         self.login_entry = Entry(self.add_account_frame)

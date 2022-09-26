@@ -23,7 +23,7 @@ class ChangeAccount(Accounts):
         self.change_account_frame.pack()
 
         Label(self.change_account_frame,
-        text = "Select which service's \ndata you would like to change", font = "Helvetica 20 bold").grid(row = 0, column = 0, pady = 20)
+        text = "Select which service's \ndata you would like to change", font = "Helvetica 20 bold").grid(row = 0, column = 0, pady = 20, columnspan = 3)
 
         number = super().printChoiceList(self.change_account_frame)
         if number == -1:
@@ -32,5 +32,5 @@ class ChangeAccount(Accounts):
 
         btnChange = Button(self.change_account_frame, text = "Change", command = self.changeAccount, width = 14)
         btnBack = Button(self.change_account_frame, text = "Back to menu", command = self.back_to_menu, width = 14)
-        btnChange.grid(row = len(self.servicesList) + 2, column = 0, pady = 20, sticky = 'e')
         btnBack.grid(row = len(self.servicesList) + 2, column = 0, pady = 20, sticky = 'w')
+        btnChange.grid(row = len(self.servicesList) + 2, column = 2, pady = 20, sticky = 'e')

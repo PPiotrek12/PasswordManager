@@ -9,7 +9,7 @@ class Main:
 	def __init__(self):
 		self.root = Tk()
 		self.root.title("PasswordManager")
-		self.root.geometry("680x720")
+		self.root.geometry("680x740")
 
 		homedir = os.path.expanduser("~") + "/"
 		values.data_path = homedir + ".PasswordManager/"

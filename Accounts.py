@@ -37,5 +37,5 @@ class Accounts:
                 self.last = self.act
                 self.act = number
 
-            btn.append(Button(self.frame, text = e, command = clicked, width = 30, height = 2))
-            btn[i].grid(row = i+1, column = 0, pady = 5)
+            btn.append(Button(self.frame, text = e, command = clicked, width = 20, height = 2))
+            btn[i].grid(row = int(i/3) + 1, column = i % 3, pady = 5, padx = 3)

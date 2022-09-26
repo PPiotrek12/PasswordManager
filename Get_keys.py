@@ -15,8 +15,8 @@ class Get_keys:
         self.keys_frame = Frame(self.root)
         self.keys_frame.pack()
 
-        self.entry1 = Entry(self.keys_frame, width = 53)
-        self.entry2 = Entry(self.keys_frame, width = 53)
+        self.entry1 = Entry(self.keys_frame, width = 53, show = '*')
+        self.entry2 = Entry(self.keys_frame, width = 53, show = '*')
         btn = Button(self.keys_frame, text = "Confirm", command = self.inserted)
 
         Label(self.keys_frame, text = "Insert first encryption key.", font = "Helvetica 20 bold").grid(row = 0, column = 0, pady = 20)

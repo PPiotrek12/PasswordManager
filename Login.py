@@ -23,7 +23,7 @@ class Login:
 
         self.login_frame = Frame(self.root)
         self.login_frame.pack()
-        self.entry = Entry(self.login_frame, width = 35)
+        self.entry = Entry(self.login_frame, show = '*', width = 35)
         btn = Button(self.login_frame, text = "Login", command = self.check)
 
         Label(self.login_frame, text = "Insert your password.", font = "Helvetica 25 bold").grid(row = 0, column = 0, pady = 20)

@@ -26,8 +26,8 @@ class Register():
         self.registration_frame = Frame(self.root)
         self.registration_frame.pack()
 
-        self.entry1 = Entry(self.registration_frame)
-        self.entry2 = Entry(self.registration_frame)
+        self.entry1 = Entry(self.registration_frame, show = '*')
+        self.entry2 = Entry(self.registration_frame, show = '*')
         btn = Button(self.registration_frame, text = "Register", command = self.savePassword)
 
         Label(self.registration_frame, text = "Insert your new password.", font = "Helvetica 25 bold").grid(row = 0, column = 0, pady = 20)

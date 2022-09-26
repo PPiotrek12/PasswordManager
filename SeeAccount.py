@@ -25,9 +25,9 @@ class SeeAccount(Accounts):
             self.shown.destroy()
 
         self.shown = Label(self.see_account_frame,
-        text = self.servicesList[number] + f" account's data:\n\nLogin: {login}\nPassword: {password}", font = "Helvetica 14")
+            text = self.servicesList[number] + f" account's data:\n\nLogin: {login}\nPassword: {password}", font = "Helvetica 14")
 
-        self.shown.grid(row = len(self.servicesList) + 4, column = 0, pady = 10)
+        self.shown.grid(row = len(self.servicesList) + 4, columnspan = 3, column = 0, pady = 10)
 
     def back_to_menu(self):
         self.see_account_frame.pack_forget()
@@ -43,14 +43,14 @@ class SeeAccount(Accounts):
         self.shown = 0
 
         Label(self.see_account_frame,
-        text = "Select which service's \ndata you would like to see", font = "Helvetica 20 bold").grid(row = 0, column = 0, pady = 20)
+        text = "Select which service's \ndata you would like to see", font = "Helvetica 20 bold").grid(row = 0, column = 0, columnspan = 3, pady = 20)
 
         number = super().printChoiceList(self.see_account_frame)
         if number == -1:
-            back_to_menu()
+            self.back_to_menu()
             return
 
         btnSee = Button(self.see_account_frame, text = "See", command = self.seeAccount, width = 14)
         btnBack = Button(self.see_account_frame, text = "Back to menu", command = self.back_to_menu, width = 14)
-        btnSee.grid(row = len(self.servicesList) + 2, column = 0, pady = 20, sticky = 'e')
         btnBack.grid(row = len(self.servicesList) + 2, column = 0, pady = 20, sticky = 'w')
+        btnSee.grid(row = len(self.servicesList) + 2, column = 2, pady = 20, sticky = 'e')
