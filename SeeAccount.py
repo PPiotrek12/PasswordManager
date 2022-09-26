@@ -7,29 +7,27 @@ class SeeAccount(Accounts):
     def seeAccount(self):
         number = super().getChoiceNumber()
         if number == -1:
-            self.error = Label(self.see_account_frame, text = "Select service.", fg = "red")
-            self.error.grid(row = len(self.servicesList) + 3, column = 0, pady = 10)
-        else:
-            file = open(values.data_path + self.servicesList[number] + ".txt", 'r')
-            encLogin = file.readline()
-            encPassword = file.readline()
-            file.close()
-            encLogin = encLogin[:len(encLogin)-1]
-            encPassword = encPassword[:len(encPassword)-1]
+            return        
+        file = open(values.data_path + self.servicesList[number] + ".txt", 'r')
+        encLogin = file.readline()
+        encPassword = file.readline()
+        file.close()
+        encLogin = encLogin[:len(encLogin)-1]
+        encPassword = encPassword[:len(encPassword)-1]
 
-            enc = Encryption(values.key1, values.key2)
-            login = enc.decrypt(encLogin)
-            password = enc.decrypt(encPassword)
+        enc = Encryption(values.key1, values.key2)
+        login = enc.decrypt(encLogin)
+        password = enc.decrypt(encPassword)
 
-            if self.error != 0:
-                self.error.destroy()
-            if self.shown != 0:
-                self.shown.destroy()
+        if self.error != 0:
+            self.error.destroy()
+        if self.shown != 0:
+            self.shown.destroy()
 
-            self.shown = Label(self.see_account_frame,
-            text = self.servicesList[number] + f" account's data:\n\nLogin: {login}\nPassword: {password}", font = "Helvetica 14")
+        self.shown = Label(self.see_account_frame,
+        text = self.servicesList[number] + f" account's data:\n\nLogin: {login}\nPassword: {password}", font = "Helvetica 14")
 
-            self.shown.grid(row = len(self.servicesList) + 4, column = 0, pady = 10)
+        self.shown.grid(row = len(self.servicesList) + 4, column = 0, pady = 10)
 
     def back_to_menu(self):
         self.see_account_frame.pack_forget()
@@ -49,8 +47,7 @@ class SeeAccount(Accounts):
 
         number = super().printChoiceList(self.see_account_frame)
         if number == -1:
-            self.see_account_frame.pack_forget()
-            self.menu_frame.pack()
+            back_to_menu()
             return
 
         btnSee = Button(self.see_account_frame, text = "See", command = self.seeAccount, width = 14)

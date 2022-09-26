@@ -2,6 +2,7 @@ from tkinter import *
 from AddAccount import AddAccount
 from SeeAccount import SeeAccount
 from DeleteAccount import DeleteAccount
+from ChangeAccount import ChangeAccount
 import values
 
 class Menu:
@@ -12,7 +13,8 @@ class Menu:
         self.menu_frame.pack_forget()
         add = AddAccount(self.root, self.menu_frame)
     def changeButtonClicked(self):
-        pass
+        self.menu_frame.pack_forget()
+        change = ChangeAccount(self.root, self.menu_frame)
 
     def deleteButtonClicked(self):
         self.menu_frame.pack_forget()

@@ -1,29 +1,36 @@
 from Accounts import Accounts
+from tkinter import *
 from Encryption import Encryption
-import getpass
+from ChangeAccount2 import ChangeAccount2
 
 class ChangeAccount(Accounts):
-    def __init__(self, key1, key2):
-        super().__init__()
-        self.key2 = key2
-        self.key1 = key1
+    def back_to_menu(self):
+        self.change_account_frame.pack_forget()
+        self.menu_frame.pack()
 
     def changeAccount(self):
-        number = super().printChoiceList("Insert the number of account which you would like to change.")
+        number = super().getChoiceNumber()
         if number == -1:
             return
+        self.change_account_frame.pack_forget()
+        change2 = ChangeAccount2(self.root, self.change_account_frame, number)
 
-        serviceName = self.servicesList[number - 1]
-        accLogin = input("Insert new login to your account.\n>>> ")
-        accPassword = getpass.getpass(prompt = "Insert new password to your account (text is hidden).\n>>> ")
+    def __init__(self, root, menu_frame):
+        super().__init__()
+        self.root = root
+        self.menu_frame = menu_frame
+        self.change_account_frame = Frame(self.root)
+        self.change_account_frame.pack()
 
-        enc = Encryption(self.key1, self.key2)
-        encAccLogin = enc.encrypt(accLogin)
-        encAccPassword = enc.encrypt(accPassword)
+        Label(self.change_account_frame,
+        text = "Select which service's \ndata you would like to change", font = "Helvetica 20 bold").grid(row = 0, column = 0, pady = 20)
 
-        newFile = open(self.path + serviceName + ".txt", 'w')
-        print(encAccLogin, file = newFile)
-        print(encAccPassword, file = newFile)
-        newFile.close()
+        number = super().printChoiceList(self.change_account_frame)
+        if number == -1:
+            self.back_to_menu()
+            return
 
-        print("You have successfully changed account's data.\n\n")
+        btnChange = Button(self.change_account_frame, text = "Change", command = self.changeAccount, width = 14)
+        btnBack = Button(self.change_account_frame, text = "Back to menu", command = self.back_to_menu, width = 14)
+        btnChange.grid(row = len(self.servicesList) + 2, column = 0, pady = 20, sticky = 'e')
+        btnBack.grid(row = len(self.servicesList) + 2, column = 0, pady = 20, sticky = 'w')
