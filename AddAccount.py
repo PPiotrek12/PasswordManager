@@ -5,13 +5,12 @@ from tkinter import *
 from tkinter import messagebox
 
 class AddAccount(Accounts):
-
     def addAccount(self):
         serviceName = self.service_name_entry.get()
         accLogin = self.login_entry.get()
         accPassword = self.password_entry.get()
         if serviceName in self.servicesList:
-            Label(self.add_account_frame, text = "Such service exists.", fg = "red").grid(row = 6, column = 0)
+            Label(self.add_account_frame, text = "Such service exists, try again.", fg = "red").grid(row = 7, column = 0)
             return
 
         enc = Encryption(values.key1, values.key2)
@@ -28,7 +27,7 @@ class AddAccount(Accounts):
         servDataFile.close()
 
         messagebox.showinfo(message = "New account has beed added successfully.")
-        
+
 
     def __init__(self, root):
         super().__init__()

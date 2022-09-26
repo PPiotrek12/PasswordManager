@@ -10,7 +10,7 @@ class Register():
         password1 = self.entry1.get()
         password2 = self.entry2.get()
         if password1 != password2:
-            Label(self.registration_frame, text = "Paswwords doesn't match.").grid(row = 5, column = 0)
+            Label(self.registration_frame, text = "Paswwords doesn't match, try again.", fg = "red").grid(row = 5, column = 0, pady = 10)
         else:
             hash = hashlib.new('sha256')
             hash.update(password1.encode())
@@ -30,8 +30,8 @@ class Register():
         self.entry2 = Entry(self.registration_frame)
         btn = Button(self.registration_frame, text = "Register", command = self.savePassword)
 
-        Label(self.registration_frame, text = "Insert your new password.").grid(row = 0, column = 0)
+        Label(self.registration_frame, text = "Insert your new password.", font = "Helvetica 25 bold").grid(row = 0, column = 0, pady = 20)
         self.entry1.grid(row = 1, column = 0)
-        Label(self.registration_frame, text = "Confirm your new password.").grid(row = 2, column = 0)
+        Label(self.registration_frame, text = "Confirm your new password.", font = "Helvetica 23 bold").grid(row = 2, column = 0, pady = 20)
         self.entry2.grid(row = 3, column = 0)
-        btn.grid(row = 4, column = 0)
+        btn.grid(row = 4, column = 0, pady = 10)
