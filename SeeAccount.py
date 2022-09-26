@@ -31,6 +31,9 @@ class SeeAccount(Accounts):
 
             self.shown.grid(row = len(self.servicesList) + 4, column = 0, pady = 10)
 
+    def back_to_menu(self):
+        self.see_account_frame.pack_forget()
+        self.menu_frame.pack()
 
     def __init__(self, root, menu_frame):
         super().__init__()
@@ -50,4 +53,7 @@ class SeeAccount(Accounts):
             self.menu_frame.pack()
             return
 
-        Button(self.see_account_frame, text = "See", command = self.seeAccount).grid(row = len(self.servicesList) + 2, column = 0, pady = 20)
+        btnSee = Button(self.see_account_frame, text = "See", command = self.seeAccount, width = 14)
+        btnBack = Button(self.see_account_frame, text = "Back to menu", command = self.back_to_menu, width = 14)
+        btnSee.grid(row = len(self.servicesList) + 2, column = 0, pady = 20, sticky = 'e')
+        btnBack.grid(row = len(self.servicesList) + 2, column = 0, pady = 20, sticky = 'w')
