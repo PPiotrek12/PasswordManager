@@ -1,33 +1,32 @@
-from register import register
-from login import login
+from Register import Register
+from Login import Login
 import values
 import os.path
 
 from tkinter import *
 
-root = Tk()
-root.title("PasswordManager")
-root.geometry("600x640")
+class Main:
+	def __init__(self):
+		self.root = Tk()
+		self.root.title("PasswordManager")
+		self.root.geometry("600x640")
 
-def start():
-	homedir = os.path.expanduser("~") + "/"
-	values.data_path = homedir + ".PasswordManager/"
-	try:
-		file = open(homedir + ".PasswordManager/login.txt", 'r')
-		file.close()
-		done = login(root)
-	except:
+		homedir = os.path.expanduser("~") + "/"
+		values.data_path = homedir + ".PasswordManager/"
 		try:
-			file = open(homedir + ".PasswordManager/login.txt", 'w')
+			file = open(homedir + ".PasswordManager/login.txt", 'r')
 			file.close()
-			done = register(root)
-		except: #directory /home/username/.PasswordManager doesn't exist and we have to add it first
-			os.mkdir(homedir + ".PasswordManager")
-			done = register(root)
+			login = Login(self.root)
+		except:
+			try:
+				file = open(homedir + ".PasswordManager/login.txt", 'w')
+				file.close()
+				register = Register(self.root)
+			except: #directory /home/username/.PasswordManager doesn't exist and we have to add it first
+				os.mkdir(homedir + ".PasswordManager")
+				register = Register(self.root)
 
-	if not done:
-		return
 
-	return
-start()
-root.mainloop()
+
+main = Main()
+main.root.mainloop()
