@@ -1,13 +1,13 @@
 from tkinter import *
 import values
-from menu import menu
+from Menu import Menu
 
 def inserted(root, frame, entry1, entry2):
     values.key1 = entry1.get()
     values.key2 = entry2.get()
 
     frame.pack_forget()
-    menu(root)
+    menu = Menu(root)
 
 def get_keys(root):
     keys_frame = Frame(root)
