@@ -14,19 +14,29 @@ class Accounts:
         servDataFile.close()
         for i in range(len(self.servicesList)):
             self.servicesList[i] = self.servicesList[i][:len(self.servicesList[i])-1]
+        self.servicesList.sort()
+
+    def getChoiceNumber(self):
+        return self.act
 
     def printChoiceList(self, frame, text):
+        self.frame = frame
         if len(self.servicesList) == 0:
-            messagebox.showinfo(frame, message = "No accounts added yet, firstly add one.")
+            messagebox.showinfo(self.frame, message = "No accounts added yet, firstly add one.")
             return -1
 
-        
-        print(text)
-        for i, act in enumerate(self.servicesList):
-            print(f"[{i+1}] {act}")
-        number = int(input(">>> "))
-        print("")
-        while number <= 0 or number > len(self.servicesList):
-            number = int(input(f"Try again. Please insert number from range [1, {len(self.servicesList)}].\n>>> "))
-            print("")
-        return number
+        self.last = -1
+        self.act = -1
+        btn = []
+        for i, e in enumerate(self.servicesList):
+            def clicked(number = i):
+                if self.act == -1:
+                    btn[number]['state'] = DISABLED
+                else:
+                    btn[self.act]['state'] = NORMAL
+                    btn[number]['state'] = DISABLED
+                self.last = self.act
+                self.act = number
+
+            btn.append(Button(self.frame, text = e, command = clicked, width = 30, height = 2))
+            btn[i].grid(row = i+1, column = 0, pady = 5)
