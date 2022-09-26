@@ -47,7 +47,7 @@ class SeeAccount(Accounts):
         Label(self.see_account_frame,
         text = "Select which service's \ndata you would like to see", font = "Helvetica 20 bold").grid(row = 0, column = 0, pady = 20)
 
-        number = super().printChoiceList(self.see_account_frame, "Insert the number of account of which you would like to see login and password.")
+        number = super().printChoiceList(self.see_account_frame)
         if number == -1:
             self.see_account_frame.pack_forget()
             self.menu_frame.pack()

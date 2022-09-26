@@ -1,6 +1,7 @@
 from tkinter import *
 from AddAccount import AddAccount
 from SeeAccount import SeeAccount
+from DeleteAccount import DeleteAccount
 import values
 
 class Menu:
@@ -14,7 +15,8 @@ class Menu:
         pass
 
     def deleteButtonClicked(self):
-        pass
+        self.menu_frame.pack_forget()
+        add = DeleteAccount(self.root, self.menu_frame)
 
     def __init__(self, root):
         self.root = root

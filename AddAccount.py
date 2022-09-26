@@ -30,6 +30,10 @@ class AddAccount(Accounts):
         self.add_account_frame.pack_forget()
         self.menu_frame.pack()
 
+    def back_to_menu(self):
+        self.add_account_frame.pack_forget()
+        self.menu_frame.pack()
+
     def __init__(self, root, menu_frame):
         super().__init__()
         self.root = root
@@ -41,7 +45,8 @@ class AddAccount(Accounts):
         self.service_name_entry = Entry(self.add_account_frame)
         self.login_entry = Entry(self.add_account_frame)
         self.password_entry = Entry(self.add_account_frame)
-        btn = Button(self.add_account_frame, text = "Add", command = self.addAccount)
+        btn = Button(self.add_account_frame, text = "Add", command = self.addAccount, width = 10)
+        btnBack = Button(self.add_account_frame, text = "Back to menu", command = self.back_to_menu, width = 10)
 
         Label(self.add_account_frame, text = "Insert service name", font = "Helvetica 20 bold").grid(row = 0, column = 0, pady = 20)
         self.service_name_entry.grid(row = 1, column = 0)
@@ -49,4 +54,5 @@ class AddAccount(Accounts):
         self.login_entry.grid(row = 3, column = 0)
         Label(self.add_account_frame, text = "Insert your password", font = "Helvetica 18 bold").grid(row = 4, column = 0, pady = 20)
         self.password_entry.grid(row = 5, column = 0)
-        btn.grid(row = 6, column = 0, pady = 20)
+        btn.grid(row = 6, column = 0, pady = 20, sticky = 'e')
+        btnBack.grid(row = 6, column = 0, pady = 20, sticky = 'w')

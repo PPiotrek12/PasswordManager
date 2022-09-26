@@ -18,7 +18,7 @@ class Accounts:
 
     def getChoiceNumber(self):
         return self.act
-    def printChoiceList(self, frame, text):
+    def printChoiceList(self, frame):
         self.frame = frame
         if len(self.servicesList) == 0:
             messagebox.showinfo(self.frame, message = "No accounts added yet, firstly add one.")
