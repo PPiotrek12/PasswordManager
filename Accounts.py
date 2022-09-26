@@ -18,7 +18,6 @@ class Accounts:
 
     def getChoiceNumber(self):
         return self.act
-
     def printChoiceList(self, frame, text):
         self.frame = frame
         if len(self.servicesList) == 0:

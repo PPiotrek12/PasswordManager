@@ -26,8 +26,11 @@ class SeeAccount(Accounts):
             if self.shown != 0:
                 self.shown.destroy()
 
-            self.shown = Label(self.see_account_frame, text = self.servicesList[number] + f" account's data:\n\nLogin: {login}\nPassword: {password}", font = "Helvetica 14")
+            self.shown = Label(self.see_account_frame,
+            text = self.servicesList[number] + f" account's data:\n\nLogin: {login}\nPassword: {password}", font = "Helvetica 14")
+
             self.shown.grid(row = len(self.servicesList) + 4, column = 0, pady = 10)
+
 
     def __init__(self, root, menu_frame):
         super().__init__()
@@ -38,7 +41,8 @@ class SeeAccount(Accounts):
         self.error = 0
         self.shown = 0
 
-        Label(self.see_account_frame, text = "Select which service's \ndata you would like to see", font = "Helvetica 20 bold").grid(row = 0, column = 0, pady = 20)
+        Label(self.see_account_frame,
+        text = "Select which service's \ndata you would like to see", font = "Helvetica 20 bold").grid(row = 0, column = 0, pady = 20)
 
         number = super().printChoiceList(self.see_account_frame, "Insert the number of account of which you would like to see login and password.")
         if number == -1:
