@@ -1,7 +1,7 @@
 from tkinter import *
 import hashlib
 import values
-from get_keys import get_keys
+from Get_keys import Get_keys
 
 class Login:
     def check(self):
@@ -12,7 +12,7 @@ class Login:
             Label(self.login_frame, text = "Wrong password, try again.", fg = "red").grid(row = 3, column = 0, pady = 10)
         else:
             self.login_frame.pack_forget()
-            get_keys(self.root)
+            get_keys = Get_keys(self.root)
 
     def __init__(self, root):
         self.root = root
