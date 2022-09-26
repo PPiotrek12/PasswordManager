@@ -1,13 +1,15 @@
 from tkinter import *
 from AddAccount import AddAccount
+from SeeAccount import SeeAccount
 import values
 
 class Menu:
     def seeButtonClicked(self):
-        pass
+        self.menu_frame.pack_forget()
+        see = SeeAccount(self.root, self.menu_frame)
     def addButtonClicked(self):
         self.menu_frame.pack_forget()
-        add = AddAccount(self.root)
+        add = AddAccount(self.root, self.menu_frame)
     def changeButtonClicked(self):
         pass
 

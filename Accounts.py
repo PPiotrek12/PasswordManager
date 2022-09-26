@@ -1,4 +1,7 @@
+from tkinter import *
+from tkinter import messagebox
 import values
+
 class Accounts:
     def __init__(self):
         self.servicesList = []
@@ -12,10 +15,12 @@ class Accounts:
         for i in range(len(self.servicesList)):
             self.servicesList[i] = self.servicesList[i][:len(self.servicesList[i])-1]
 
-    def printChoiceList(self, text):
+    def printChoiceList(self, frame, text):
         if len(self.servicesList) == 0:
-            print("No accounts added yet, firstly add one.\n\n")
+            messagebox.showinfo(frame, message = "No accounts added yet, firstly add one.")
             return -1
+
+        
         print(text)
         for i, act in enumerate(self.servicesList):
             print(f"[{i+1}] {act}")

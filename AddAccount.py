@@ -27,11 +27,13 @@ class AddAccount(Accounts):
         servDataFile.close()
 
         messagebox.showinfo(message = "New account has beed added successfully.")
+        self.add_account_frame.pack_forget()
+        self.menu_frame.pack()
 
-
-    def __init__(self, root):
+    def __init__(self, root, menu_frame):
         super().__init__()
         self.root = root
+        self.menu_frame = menu_frame
 
         self.add_account_frame = Frame(root)
         self.add_account_frame.pack()
